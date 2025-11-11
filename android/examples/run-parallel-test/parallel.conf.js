@@ -8,10 +8,8 @@ exports.config = {
     [
       'browserstack',
       {
-        // accessibility: true,
+        accessibility: true,
         buildIdentifier: '${BUILD_NUMBER}',
-        browserstackLocal: false,
-        opts: { forcelocal: false, localIdentifier: "webdriverio-appium-app-browserstack-repo" },
         app: process.env.BROWSERSTACK_APP_PATH || './examples/WikipediaSample.apk',
       }
     ]
@@ -32,10 +30,10 @@ exports.config = {
   commonCapabilities: {
     'bstack:options': {
       projectName: "WDIO A11y",
-      buildName: 'browserstack build',
+      buildName: 'testing',
       sessionName: 'BStack parallel webdriverio-appium',
       debug: true,
-      networkLogs: true,
+      networkLogs: false,
       source: 'webdriverio:appium-sample-sdk:v1.0'
     }
   },
