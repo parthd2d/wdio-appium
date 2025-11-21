@@ -11,7 +11,7 @@ exports.config = {
         accessibility: false,
         browserstackLocal: true,
         buildIdentifier: '${BUILD_NUMBER}',
-        app: process.env.BROWSERSTACK_APP_PATH || './examples/WikipediaSample.apk',
+        app: process.env.BROWSERSTACK_APP_PATH || './examples/LocalSample.apk',
       }
     ]
   ],
