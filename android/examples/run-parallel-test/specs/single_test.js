@@ -1,10 +1,12 @@
 var assert = require('assert');
+const { percy } = require('browserstack-node-sdk');
 
 describe('Search Wikipedia Functionality', () => {
   it('can find search results TC-103', async () => {
 
     var skipButton = await $('android=new UiSelector().resourceId("org.wikipedia.alpha:id/fragment_onboarding_skip_button")');
     await skipButton.waitForDisplayed({ timeout: 30000 });
+    await percy.screenshotApp("Landing Page")
     await skipButton.click();
     
     var searchSelector = await $(`~Search Wikipedia`);
@@ -13,11 +15,13 @@ describe('Search Wikipedia Functionality', () => {
 
     var insertTextSelector = await $('android=new UiSelector().resourceId("org.wikipedia.alpha:id/search_src_text")');
     await insertTextSelector.waitForDisplayed({ timeout: 30000 });
+    await percy.screenshotApp("Search Page")
 
     await insertTextSelector.addValue("BrowserStack");
     await browser.pause(5000);
 
     var allProductsName = await $$(`android.widget.TextView`);
+    await percy.screenshotApp("Search Results Page")
     assert(allProductsName.length > 0);
   });
 });

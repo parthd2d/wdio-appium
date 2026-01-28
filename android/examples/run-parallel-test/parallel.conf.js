@@ -8,6 +8,8 @@ exports.config = {
     [
       'browserstack',
       {
+        percy: true,
+        percyCaptureMode: 'manual',
         // accessibility: true,
         buildIdentifier: '${BUILD_NUMBER}',
         app: process.env.BROWSERSTACK_APP_PATH || './examples/WikipediaSample.apk',
@@ -29,7 +31,7 @@ exports.config = {
 
   commonCapabilities: {
     'bstack:options': {
-      projectName: "Demo Project",
+      projectName: "App Percy Figma Integration",
       buildName: 'Test-Case ID tagging',
       sessionName: 'BStack parallel webdriverio-appium',
       debug: true,
